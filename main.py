@@ -11,3 +11,7 @@ def read_root():
 def get_stock_data(symbol: str):
     stock_data = yf.Ticker(symbol)
     return stock_data.history(period="1d", interval="1m")
+
+@app.get("/health")
+def health_check():
+    return {"status": "Healthy"}
